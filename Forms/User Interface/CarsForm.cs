@@ -43,19 +43,21 @@ namespace Carl_Rental_System.Forms.User_Interface
         {
             List<string> Brands = new List<string>
             {
-                "Available Cars" , "Toyota" ,"Honda", "Mitsubishi", "Suzuki","Ford","Hyundai" , "Kia"
+                "Available Cars   " , "Toyota   " ,"Honda   ", "Mitsubishi   ", "Suzuki   ","Ford   ","Hyundai   " , "Kia   "
             };
             foreach (var Brand in Brands)
             {
                 Label BrandLbl = new Label();
                 {
                     Cursor = Cursors.Hand;
+                    BrandLbl.AutoSize = true;
+
                 }
                 BrandLbl.Text = Brand;
                 FLPBrand.Controls.Add(BrandLbl);
                 BrandLbl.Click += (s, e) =>
                 {
-                    if (Brand == "Available Cars")
+                    if (Brand == "Available Cars   ")
                     {
                         DisplayCars(null);
                     }
@@ -71,6 +73,10 @@ namespace Carl_Rental_System.Forms.User_Interface
         {
             DisplayCars();
         }
- 
+
+        private void FLPDisplayCars_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
