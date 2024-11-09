@@ -73,6 +73,11 @@ namespace Carl_Rental_System.DisplayControl
             int.TryParse(CarIdLbl.Text, out int carID);
             return carID;
         }
+
+        private void ModelLbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

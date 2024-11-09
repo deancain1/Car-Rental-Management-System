@@ -51,9 +51,9 @@
             this.flpCar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpCar.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpCar.Location = new System.Drawing.Point(0, 0);
-            this.flpCar.Margin = new System.Windows.Forms.Padding(7, 12, 7, 12);
+            this.flpCar.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.flpCar.Name = "flpCar";
-            this.flpCar.Size = new System.Drawing.Size(500, 416);
+            this.flpCar.Size = new System.Drawing.Size(411, 345);
             this.flpCar.TabIndex = 0;
             // 
             // CardPanel
@@ -69,32 +69,34 @@
             this.CardPanel.Controls.Add(this.PriceLbl);
             this.CardPanel.Controls.Add(this.ModelLbl);
             this.CardPanel.Controls.Add(this.BrandLbl);
-            this.CardPanel.Location = new System.Drawing.Point(15, 4);
-            this.CardPanel.Margin = new System.Windows.Forms.Padding(15, 4, 4, 4);
+            this.CardPanel.Location = new System.Drawing.Point(20, 3);
+            this.CardPanel.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.CardPanel.Name = "CardPanel";
-            this.CardPanel.Padding = new System.Windows.Forms.Padding(4);
+            this.CardPanel.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.CardPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CardPanel.Size = new System.Drawing.Size(437, 359);
+            this.CardPanel.Size = new System.Drawing.Size(367, 307);
             this.CardPanel.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(7, 257);
+            this.label3.Location = new System.Drawing.Point(28, 213);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 25);
+            this.label3.Size = new System.Drawing.Size(61, 19);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Type of Car:";
+            this.label3.Text = "Model:";
             // 
             // CarIdLbl
             // 
             this.CarIdLbl.AutoSize = true;
             this.CarIdLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CarIdLbl.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CarIdLbl.Location = new System.Drawing.Point(321, 207);
+            this.CarIdLbl.Location = new System.Drawing.Point(241, 168);
+            this.CarIdLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CarIdLbl.Name = "CarIdLbl";
-            this.CarIdLbl.Size = new System.Drawing.Size(69, 27);
+            this.CarIdLbl.Size = new System.Drawing.Size(55, 22);
             this.CarIdLbl.TabIndex = 6;
             this.CarIdLbl.Text = "label1";
             this.CarIdLbl.Visible = false;
@@ -103,20 +105,21 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 305);
+            this.label2.Location = new System.Drawing.Point(35, 258);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 25);
+            this.label2.Size = new System.Drawing.Size(50, 19);
             this.label2.TabIndex = 8;
             this.label2.Text = "Price:";
             // 
             // rentCarBTn
             // 
-            this.rentCarBTn.BackColor = System.Drawing.Color.PaleGreen;
+            this.rentCarBTn.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.rentCarBTn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rentCarBTn.Location = new System.Drawing.Point(255, 302);
-            this.rentCarBTn.Margin = new System.Windows.Forms.Padding(4);
+            this.rentCarBTn.ForeColor = System.Drawing.SystemColors.Control;
+            this.rentCarBTn.Location = new System.Drawing.Point(260, 260);
             this.rentCarBTn.Name = "rentCarBTn";
-            this.rentCarBTn.Size = new System.Drawing.Size(132, 34);
+            this.rentCarBTn.Size = new System.Drawing.Size(99, 28);
             this.rentCarBTn.TabIndex = 5;
             this.rentCarBTn.Text = "View more";
             this.rentCarBTn.UseVisualStyleBackColor = false;
@@ -124,10 +127,10 @@
             // 
             // CarImage
             // 
-            this.CarImage.Location = new System.Drawing.Point(40, 2);
-            this.CarImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CarImage.Location = new System.Drawing.Point(53, 5);
+            this.CarImage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CarImage.Name = "CarImage";
-            this.CarImage.Size = new System.Drawing.Size(347, 181);
+            this.CarImage.Size = new System.Drawing.Size(260, 147);
             this.CarImage.TabIndex = 3;
             this.CarImage.TabStop = false;
             // 
@@ -135,53 +138,55 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 209);
+            this.label1.Location = new System.Drawing.Point(32, 168);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 25);
+            this.label1.Size = new System.Drawing.Size(58, 19);
             this.label1.TabIndex = 7;
             this.label1.Text = "Brand:";
             // 
             // PriceLbl
             // 
-            this.PriceLbl.AutoSize = true;
-            this.PriceLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PriceLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PriceLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PriceLbl.Location = new System.Drawing.Point(84, 305);
+            this.PriceLbl.Location = new System.Drawing.Point(93, 250);
+            this.PriceLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PriceLbl.Name = "PriceLbl";
-            this.PriceLbl.Size = new System.Drawing.Size(62, 26);
+            this.PriceLbl.Size = new System.Drawing.Size(87, 37);
             this.PriceLbl.TabIndex = 2;
             this.PriceLbl.Text = "label3";
             // 
             // ModelLbl
             // 
-            this.ModelLbl.AutoSize = true;
-            this.ModelLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ModelLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ModelLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModelLbl.Location = new System.Drawing.Point(144, 257);
+            this.ModelLbl.Location = new System.Drawing.Point(93, 206);
+            this.ModelLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModelLbl.Name = "ModelLbl";
-            this.ModelLbl.Size = new System.Drawing.Size(62, 26);
+            this.ModelLbl.Size = new System.Drawing.Size(87, 37);
             this.ModelLbl.TabIndex = 1;
             this.ModelLbl.Text = "label2";
+            this.ModelLbl.Click += new System.EventHandler(this.ModelLbl_Click);
             // 
             // BrandLbl
             // 
-            this.BrandLbl.AutoSize = true;
-            this.BrandLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.BrandLbl.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BrandLbl.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BrandLbl.Location = new System.Drawing.Point(84, 210);
+            this.BrandLbl.Location = new System.Drawing.Point(93, 165);
+            this.BrandLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.BrandLbl.Name = "BrandLbl";
-            this.BrandLbl.Size = new System.Drawing.Size(69, 27);
+            this.BrandLbl.Size = new System.Drawing.Size(87, 37);
             this.BrandLbl.TabIndex = 0;
             this.BrandLbl.Text = "label1";
             // 
             // DisplayCar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flpCar);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "DisplayCar";
-            this.Size = new System.Drawing.Size(500, 416);
+            this.Size = new System.Drawing.Size(411, 345);
             this.flpCar.ResumeLayout(false);
             this.CardPanel.ResumeLayout(false);
             this.CardPanel.PerformLayout();
