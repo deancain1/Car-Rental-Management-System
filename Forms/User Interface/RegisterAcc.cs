@@ -40,7 +40,7 @@ namespace Carl_Rental_System.Forms
                 return;
             }
 
-            // Check if all fields are filled in
+            
             if (
                 string.IsNullOrEmpty(FullName) ||
                 string.IsNullOrEmpty(Location) ||
@@ -52,14 +52,13 @@ namespace Carl_Rental_System.Forms
                 return;
             }
 
-            // Check if username already exists
+         
             if (db.CheckUsername(UserName))
             {
                 MessageBox.Show("Username already exists", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Populate the account model
             accountModel.FullName = FullName;
             accountModel.Age = Age;
             accountModel.Location = Location;
