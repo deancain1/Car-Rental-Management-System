@@ -10,9 +10,13 @@ namespace Carl_Rental_System.Model
     public class UserAccountModel
     {
         [Key]
-        public int UserId { get; set; }
-        public string email { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
+        public int userID { get; set; }
+        public string FullName { get; set; }
+        public int  Age { get; set; }
+        public string Location { get; set; }
+        public int PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }
