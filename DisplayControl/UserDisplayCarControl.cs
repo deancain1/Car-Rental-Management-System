@@ -40,9 +40,12 @@ namespace Carl_Rental_System.DisplayControl
                 SeatsLbl.Text = carsModel.Seats;
                 GasLbl.Text = carsModel.Gas;
                 TransmissionLbl.Text = carsModel.Transmission;
-                QuantityLbl.Text = carsModel.Quantity.ToString();
+                AvailabilityLbl.Text = carsModel.Availability.ToString();
                 CarImage.Image = ByteArrayToImage(carsModel.CarImage);
-            }
+             
+            } 
+       
+       
         }
         private Image ByteArrayToImage(byte[] byteArrayIn)
         {
@@ -66,8 +69,9 @@ namespace Carl_Rental_System.DisplayControl
 
                 if (carDetails.CarID > 0)
                 {
-                    BookDetailsModal detailsForm = new BookDetailsModal();
-                    detailsForm.BoookedCarDetails(carDetails);
+                    RentedCarsModal detailsForm = new RentedCarsModal();
+                    int quantity = QuantityValue();
+                    detailsForm.RentedCarDetails(carDetails, quantity);
                     detailsForm.ShowDialog();
                 }
                 else
@@ -77,15 +81,49 @@ namespace Carl_Rental_System.DisplayControl
             }
         }
 
+        private int QuantityValue()
+        {
+            int.TryParse(QuantityLbl.Text, out int Quantity);
     
-
-    private int GetCarId()
+            return Quantity;
+        }
+        private int GetCarId()
         {
             int.TryParse(CarIdLbl.Text, out int carID);
             return carID;
         }
 
-        private void CarImage_Click(object sender, EventArgs e)
+
+        int quantity = 1;
+        const int maxQuantity = 100;
+
+        private void AddQuantity_Click(object sender, EventArgs e)
+        {
+            if (quantity < maxQuantity)
+            {
+                quantity++;
+                QuantityLbl.Text = quantity.ToString();
+               
+            }
+        }
+
+        private void SubQuantity_Click(object sender, EventArgs e)
+        {
+            if (quantity > 1)
+            {
+                quantity--;
+                QuantityLbl.Text = quantity.ToString();
+               
+            }
+
+        }
+
+        private void UserDisplayCarControl_Load(object sender, EventArgs e)
+        {
+            QuantityLbl.Text = quantity.ToString();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
