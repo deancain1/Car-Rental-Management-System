@@ -13,7 +13,7 @@ namespace Carl_Rental_System.Database
 {
     public class DisplayCarsDB
     {
-        private static string ConnectionString = @"Data Source=LAPTOP-S6PGLPQ2;Initial Catalog=carRentalDB; Integrated Security=True;";
+       private static string ConnectionString = @"Data Source=LAPTOP-S6PGLPQ2;Initial Catalog=carRentalDB; Integrated Security=True;";
 
         public static List<DisplayCarsModel> DisplayCar()
         {
@@ -23,7 +23,7 @@ namespace Carl_Rental_System.Database
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
-                    string query = "SELECT CarId, Brand, Model, Price, Tax,  Seats, Gas, Transmission, CarImage,  Quantity FROM Cars";
+                    string query = "SELECT CarId, Brand, Model, Price, Tax,  Seats, Gas, Transmission, CarImage,  Availability FROM Cars";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -41,7 +41,7 @@ namespace Carl_Rental_System.Database
                                     Seats = reader.GetString(reader.GetOrdinal("Seats")),
                                     Gas = reader.GetString(reader.GetOrdinal("Gas")),
                                     Transmission = reader.GetString(reader.GetOrdinal("Transmission")),
-                                    Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
+                                    Availability = reader.GetInt32(reader.GetOrdinal("Availability")),
                                     CarImage = (byte[])reader["CarImage"]
                                    
                                 };
@@ -70,7 +70,7 @@ namespace Carl_Rental_System.Database
 
             try
             {
-                string query = "SELECT CarID, Brand, Model, Price, Seats,  Tax, Gas, Transmission,  CarImage , Quantity FROM Cars WHERE Brand = @Brand";
+                string query = "SELECT CarID, Brand, Model, Price, Seats,  Tax, Gas, Transmission,  CarImage , Availability FROM Cars WHERE Brand = @Brand";
 
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
@@ -94,7 +94,7 @@ namespace Carl_Rental_System.Database
                                     Seats = reader.GetString(reader.GetOrdinal("Seats")),
                                     Gas = reader.GetString(reader.GetOrdinal("Gas")),
                                     Transmission = reader.GetString(reader.GetOrdinal("Transmission")),
-                                    Quantity = reader.GetInt32(reader.GetOrdinal("Quantity")),
+                                    Availability = reader.GetInt32(reader.GetOrdinal("Availability")),
                                     CarImage = (byte[])reader["CarImage"]
                                 };
 

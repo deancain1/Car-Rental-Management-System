@@ -20,7 +20,7 @@ namespace Carl_Rental_System.Database
                 {
                     conn.Open();
 
-                    string carQuery = "INSERT INTO Cars (Brand, Model, Price, Tax, Seats, Gas, Transmission, CarImage, Quantity) VALUES (@Brand, @Model, @Price, @Tax, @Seats, @Gas, @Transmission, @CarImage, @Quantity)";
+                    string carQuery = "INSERT INTO Cars (Brand, Model, Price, Tax, Seats, Gas, Transmission, CarImage, Availability) VALUES (@Brand, @Model, @Price, @Tax, @Seats, @Gas, @Transmission, @CarImage, @Availability)";
                     using (SqlCommand carCmd = new SqlCommand(carQuery, conn))
                     {
                         carCmd.Parameters.AddWithValue("@Brand", newCarModel.Brand);
@@ -30,7 +30,7 @@ namespace Carl_Rental_System.Database
                         carCmd.Parameters.AddWithValue("@Seats", newCarModel.Seats);
                         carCmd.Parameters.AddWithValue("@Gas", newCarModel.Gas);
                         carCmd.Parameters.AddWithValue("@Transmission", newCarModel.Transmission);
-                        carCmd.Parameters.AddWithValue("@Quantity", newCarModel.Quantity);
+                        carCmd.Parameters.AddWithValue("@Availability", newCarModel.Availability);
                         SqlParameter CarImageParam = new SqlParameter("@CarImage", SqlDbType.VarBinary);
                         CarImageParam.Value = newCarModel.CarImage ?? (object)DBNull.Value;
                         carCmd.Parameters.Add(CarImageParam);
@@ -53,7 +53,7 @@ namespace Carl_Rental_System.Database
   
         public static void UpdateCar(AddNewCarModel newcarmodel)
         {
-            string query = "UPDATE Cars SET Brand = @Brand , Model = @Model, Price= @Price,  Tax = @Tax, Gas = @Gas, Seats = @Seats, Transmission = @Transmission Quantity = @Quantity WHERE Model = @Model";
+            string query = "UPDATE Cars SET Brand = @Brand , Model = @Model, Price= @Price,  Tax = @Tax, Gas = @Gas, Seats = @Seats, Transmission = @Transmission Availability = @Availability WHERE Model = @Model";
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 try
@@ -70,7 +70,7 @@ namespace Carl_Rental_System.Database
                         cmd.Parameters.AddWithValue("@Seats", newcarmodel.Seats);
                         cmd.Parameters.AddWithValue("@Gas", newcarmodel.Gas);
                         cmd.Parameters.AddWithValue("@Transmission", newcarmodel.Transmission);
-                        cmd.Parameters.AddWithValue("@Quantity", newcarmodel.Quantity);
+                        cmd.Parameters.AddWithValue("@Availability", newcarmodel.Availability);
                         cmd.ExecuteNonQuery();
 
                     }
