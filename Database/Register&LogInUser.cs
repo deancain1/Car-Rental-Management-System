@@ -12,70 +12,83 @@ namespace Carl_Rental_System.Database
     public class Register_LogInUser
     {
         private static string ConnectionString = @"Data Source=LAPTOP-S6PGLPQ2;Initial Catalog = carRentalDB; Integrated Security = True;";
-        public bool LoginAccountUser(string username, string password)
-        {
-            try
+   
+            public static string LoggedInUsername { get; private set; }
+            public bool LoginAccountUser(string username, string password)
             {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(ConnectionString))
+                    {
+                        conn.Open();
+                        string query = "SELECT COUNT(1) FROM useraccount WHERE Username = @Username AND Password = @Password";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        if (count > 0)
+                        {
+                           
+                            LoggedInUsername = username;
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return false;
+                }
+            }
+
+
+            public bool CheckUsername(string Username)
+            {
+                string query = "SELECT COUNT (UserId) FROM useraccount WHERE Username = @Username";
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
                     conn.Open();
 
-                    String query = "SELECT COUNT(1) FROM users WHERE Username = @Username AND Password = @Password";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Username", Username);
 
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
+                        int count = (int)cmd.ExecuteScalar();
+                        return count >= 1;
+                    }
                 }
             }
-            catch (Exception ex)
+            public bool RegisterAccountUser(UserAccountModel accountModel)
             {
-                MessageBox.Show(ex.Message);
-                return false;
-            }
-        }
-        public bool CheckUsername(string Username)
-        {
-            string query = "SELECT COUNT (UserId) FROM users WHERE Username = @Username";
-            using (SqlConnection conn = new SqlConnection(ConnectionString))
-            {
-                conn.Open();
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                try
                 {
-                    cmd.Parameters.AddWithValue("@Username", Username);
+                    using (SqlConnection conn = new SqlConnection(ConnectionString))
+                    {
+                        conn.Open();
 
-                    int count = (int)cmd.ExecuteScalar();
-                    return count >= 1;
+                        string query = "INSERT INTO useraccount (FullName, Age, Location, PhoneNumber, Email, Username, Password) VALUES ( @FullName, @Age, @Location, @PhoneNumber, @Email, @Username, @Password)";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@FullName", accountModel.FullName);
+                        cmd.Parameters.AddWithValue("@Age", accountModel.Age);
+                        cmd.Parameters.AddWithValue("@Location", accountModel.Location);
+                        cmd.Parameters.AddWithValue("@PhoneNumber", accountModel.PhoneNumber);
+                        cmd.Parameters.AddWithValue("@Email", accountModel.Email);
+                        cmd.Parameters.AddWithValue("@Username", accountModel.UserName);
+                        cmd.Parameters.AddWithValue("@Password", accountModel.Password);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
                 }
-            }
-        }
-        public bool RegisterAccountUser(UserAccountModel accountModel)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                catch (SqlException sqlEx)
                 {
-                    conn.Open();
 
-                    string query = "INSERT INTO users (email, Username, Password) VALUES (@Email, @Username, @Password)";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@Email", accountModel.email);
-                    cmd.Parameters.AddWithValue("@Username", accountModel.username);
-                    cmd.Parameters.AddWithValue("@Password", accountModel.password);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    return rowsAffected > 0;
+                    Console.WriteLine("SQL Error: " + sqlEx.Message);
+                    return false;
                 }
             }
-            catch (SqlException sqlEx)
-            {
-               
-                Console.WriteLine("SQL Error: " + sqlEx.Message);
-                return false;
-            }
-        }
 
-    }
-}
+        }
+    } 
