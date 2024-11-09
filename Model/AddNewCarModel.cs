@@ -21,7 +21,7 @@ namespace Carl_Rental_System.Model
         public string Gas { get; set; }
         public string Transmission { get; set; }
         public byte[] CarImage { get; set; }
-        public int Quantity { get; set; }
+        public int Availability { get; set; }
 
 
 
