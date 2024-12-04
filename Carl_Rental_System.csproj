@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D8F8D8BC-6150-4257-9B3E-8E89554362D6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Carl_Rental_System</RootNamespace>
+    <AssemblyName>Carl_Rental_System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Docking">
+      <HintPath>..\..\..\..\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator">
+      <HintPath>..\..\..\..\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon">
+      <HintPath>..\..\..\..\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit">
+      <HintPath>..\..\..\..\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace">
+      <HintPath>..\..\..\..\Downloads\Krypton-master\Krypton-master\Bin\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\AdminAccountDB.cs" />
+    <Compile Include="Database\CarsCRUD.cs" />
+    <Compile Include="Database\AdminProfileDB.cs" />
+    <Compile Include="Database\BookingCarDB.cs" />
+    <Compile Include="Database\DisplayCarsDB.cs" />
+    <Compile Include="Database\RentedCarsDB.cs" />
+    <Compile Include="Database\ReturnedCarDB.cs" />
+    <Compile Include="Database\UserAccountDB.cs" />
+    <Compile Include="Database\UserProfileDB.cs" />
+    <Compile Include="DisplayControl\BookingCarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DisplayControl\BookingCarControl.Designer.cs">
+      <DependentUpon>BookingCarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayControl\DisplayCar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DisplayControl\DisplayCar.Designer.cs">
+      <DependentUpon>DisplayCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayControl\UserDisplayCarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DisplayControl\UserDisplayCarControl.Designer.cs">
+      <DependentUpon>UserDisplayCarControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AddAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AddAdminForm.Designer.cs">
+      <DependentUpon>AddAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\ForgotPasswordAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\ForgotPasswordAdmin.Designer.cs">
+      <DependentUpon>ForgotPasswordAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\SideBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\SideBarForm.Designer.cs">
+      <DependentUpon>SideBarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AdminHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AdminHomeForm.Designer.cs">
+      <DependentUpon>AdminHomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AdminLogInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AdminLogInForm.Designer.cs">
+      <DependentUpon>AdminLogInForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AdminProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\AdminProfile.Designer.cs">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\BookedCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\BookedCarForm.Designer.cs">
+      <DependentUpon>BookedCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\RentedCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\RentedCarForm.Designer.cs">
+      <DependentUpon>RentedCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\ReturnCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\ReturnCarForm.Designer.cs">
+      <DependentUpon>ReturnCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\UploadCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin Interface\UploadCarForm.Designer.cs">
+      <DependentUpon>UploadCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\CarsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\CarsForm.Designer.cs">
+      <DependentUpon>CarsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\ForgotPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\ForgotPasswordForm.Designer.cs">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\RegisterAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\RegisterAcc.Designer.cs">
+      <DependentUpon>RegisterAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\BookingCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\BookingCarForm.Designer.cs">
+      <DependentUpon>BookingCarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\UserHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\UserHomeForm.Designer.cs">
+      <DependentUpon>UserHomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\NavigationBarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\NavigationBarForm.Designer.cs">
+      <DependentUpon>NavigationBarForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\UserLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\UserLogIn.Designer.cs">
+      <DependentUpon>UserLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User Interface\UserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User Interface\UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal Form\EditCarModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Form\EditCarModalForm.Designer.cs">
+      <DependentUpon>EditCarModalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal Form\UploadCarModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Form\UploadCarModalForm.Designer.cs">
+      <DependentUpon>UploadCarModalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal Form\RentingDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Form\RentingDetails.Designer.cs">
+      <DependentUpon>RentingDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modal Form\BookingCarModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal Form\BookingCarModalForm.Designer.cs">
+      <DependentUpon>BookingCarModalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AdminAccountModel.cs" />
+    <Compile Include="Model\CarsCRUDModel.cs" />
+    <Compile Include="Model\BookingModel.cs" />
+    <Compile Include="Model\DisplayCarsModel.cs" />
+    <Compile Include="Model\RentedCarsModel.cs" />
+    <Compile Include="Model\ReturnedCarModel.cs" />
+    <Compile Include="Model\UserAccountModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DisplayControl\BookingCarControl.resx">
+      <DependentUpon>BookingCarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayControl\DisplayCar.resx">
+      <DependentUpon>DisplayCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayControl\UserDisplayCarControl.resx">
+      <DependentUpon>UserDisplayCarControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\AddAdminForm.resx">
+      <DependentUpon>AddAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\ForgotPasswordAdmin.resx">
+      <DependentUpon>ForgotPasswordAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\SideBarForm.resx">
+      <DependentUpon>SideBarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\AdminHomeForm.resx">
+      <DependentUpon>AdminHomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\AdminLogInForm.resx">
+      <DependentUpon>AdminLogInForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\AdminProfile.resx">
+      <DependentUpon>AdminProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\BookedCarForm.resx">
+      <DependentUpon>BookedCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\RentedCarForm.resx">
+      <DependentUpon>RentedCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\ReturnCarForm.resx">
+      <DependentUpon>ReturnCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin Interface\UploadCarForm.resx">
+      <DependentUpon>UploadCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\CarsForm.resx">
+      <DependentUpon>CarsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\ForgotPasswordForm.resx">
+      <DependentUpon>ForgotPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\RegisterAcc.resx">
+      <DependentUpon>RegisterAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\BookingCarForm.resx">
+      <DependentUpon>BookingCarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\UserHomeForm.resx">
+      <DependentUpon>UserHomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\NavigationBarForm.resx">
+      <DependentUpon>NavigationBarForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\UserLogIn.resx">
+      <DependentUpon>UserLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User Interface\UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal Form\EditCarModalForm.resx">
+      <DependentUpon>EditCarModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal Form\UploadCarModalForm.resx">
+      <DependentUpon>UploadCarModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal Form\RentingDetails.resx">
+      <DependentUpon>RentingDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal Form\BookingCarModalForm.resx">
+      <DependentUpon>BookingCarModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carbg1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carbg4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-59.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-59.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-password-39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled design %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-email-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-email-39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-car-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-100 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_100dp_434343_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_50dp_434343_FILL0_wght400_GRAD0_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group_30dp_434343_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-53 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cart-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cars-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-back-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar %282%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar %283%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\webinar 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-admin-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-steering-wheel-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-booster-car-seat-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gas-station-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gas-station-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gas-station-45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gas-station-451.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-gas-station-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-steering-wheel-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-booster-car-seat-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-addition-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-addition-401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-math-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-subtract-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-math-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-home-25 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-car-25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-people-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-administrator-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-administrator-251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-administrator-25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-administrator-25 %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-back-15 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-secure-35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-traffic-jam-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-email-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-402.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-40 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-40 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-user-40 %281%292.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-test-account-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account_circle_25dp_FFFF_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-administrator-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-administrator-male-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-settings-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-reservation-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-car-rental-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-search-35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-return-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-251.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hide-31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-eye-31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-hide-25 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cain Rental %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cain Rental %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo rental 3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
